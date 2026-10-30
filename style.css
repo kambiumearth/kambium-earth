@@ -261,7 +261,17 @@ footer a{color:var(--rust6)}
 
 /* Contact form card */
 .form-card{background:var(--parchment);color:var(--body);border-radius:18px;padding:22px 22px 6px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-.form-card iframe{width:100%;border:0;min-height:420px}
+.kform{display:flex;flex-direction:column;gap:14px;padding-bottom:16px}
+.kform label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.92rem;color:var(--bark)}
+.kform input,.kform textarea{font:inherit;font-weight:400;color:var(--bark);background:#fff;border:1px solid var(--clay);border-radius:10px;padding:.7em .85em}
+.kform input:focus,.kform textarea:focus{outline:2px solid var(--rust);outline-offset:1px;border-color:var(--rust)}
+.kform textarea{resize:vertical;min-height:140px}
+.kform button{align-self:flex-start;cursor:pointer;font-family:inherit}
+.kform button:disabled{opacity:.6;cursor:wait}
+.kform .hp{display:none}
+.kform-status{font-size:.95rem;color:var(--rust6)}
+.kform-status a{color:var(--rust)}
+.kform.sent label,.kform.sent button{display:none}
 
 /* Order complete (shown only when linked to #order-complete) */
 .target-only{display:none}

@@ -12,17 +12,18 @@
 <meta property="og:url" content="https://kambium.earth/">
 <meta property="og:title" content="Kambium•Earth-Based Learning">
 <meta property="og:description" content="A way in to the wild living world of nature, community and self. Wilderness journeys, ancestral skills and depth mentoring in Portugal and the USA.">
-<meta property="og:image" content="https://kambium.earth/images/card.jpg?v=20261030">
-<meta property="og:image:secure_url" content="https://kambium.earth/images/card.jpg?v=20261030">
+<meta property="og:image" content="https://kambium.earth/images/og-home.jpg?v=20261030">
+<meta property="og:image:secure_url" content="https://kambium.earth/images/og-home.jpg?v=20261030">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="800">
-<meta property="og:image:alt" content="Kambium•Earth-Based Learning">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A way in to the wild living world of nature, community and self. Hands holding a tinder bundle.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kambium•Earth-Based Learning">
 <meta name="twitter:description" content="A way in to the wild living world of nature, community and self. Wilderness journeys, ancestral skills and depth mentoring in Portugal and the USA.">
-<meta name="twitter:image" content="https://kambium.earth/images/card.jpg?v=20261030">
-<meta itemprop="image" content="https://kambium.earth/images/card.jpg?v=20261030">
+<meta name="twitter:image" content="https://kambium.earth/images/og-home.jpg?v=20261030">
+<meta name="twitter:image:alt" content="A way in to the wild living world of nature, community and self. Hands holding a tinder bundle.">
+<meta itemprop="image" content="https://kambium.earth/images/og-home.jpg?v=20261030">
 <meta name="theme-color" content="#401810">
 <link rel="icon" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -260,7 +261,17 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
       </ul>
     </div>
     <div class="form-card">
-      <iframe data-tally-src="https://tally.so/embed/aO99oq?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" height="420" title="Write to us"></iframe>
+      <form id="kform" class="kform" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="KEY_PENDING">
+        <input type="hidden" name="subject" value="New message from kambium.earth">
+        <input type="hidden" name="from_name" value="kambium.earth website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Message<textarea name="message" rows="6" required></textarea></label>
+        <button class="btn primary" type="submit">Send message →</button>
+        <p class="kform-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -287,12 +298,19 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
 <script>
   (function(){var n=document.querySelector('.nav');function f(){n.classList.toggle('stuck',window.scrollY>4)}window.addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
 <script>
 (function () { var SUBSTACK = 'https://joshuaglass.substack.com'; var POSTS = 3; var CACHE_KEY = 'kb-substack-feed-v2'; var CACHE_MINUTES = 30; var box = document.getElementById('kb-feed'); if (!box) return; var endpoint = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(SUBSTACK + '/feed'); function formatDate(value) { var d = new Date(value.replace(' ', 'T')); if (isNaN(d)) return ''; return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); } function decode(text) { var tmp = document.createElement('textarea'); tmp.innerHTML = text || ''; return tmp.value; } function firstImage(html) { if (!html) return null; var match = html.match(/<img[^>]+src=["']([^"']+)["']/i); return match ? decode(match[1]) : null; } function postImage(post) { if (post.enclosure && post.enclosure.link) return decode(post.enclosure.link); if (post.thumbnail) return decode(post.thumbnail); return firstImage(post.content) || firstImage(post.description); } function plainText(html) { var tmp = document.createElement('div'); tmp.innerHTML = html || ''; return (tmp.textContent || '').replace(/\s+/g, ' ').trim(); } function trim(text, max) { if (text.length <= max) return text; return text.slice(0, text.lastIndexOf(' ', max)) + '…'; } function message(text) { box.innerHTML = ''; var p = document.createElement('p'); p.className = 'kb-note'; p.textContent = text; box.appendChild(p); } function render(items) { box.innerHTML = ''; items.slice(0, POSTS).forEach(function (post) { var card = document.createElement('a'); card.className = 'kb-card'; card.href = post.link; card.target = '_blank'; card.rel = 'noopener'; var img = postImage(post); if (img) { var frame = document.createElement('div'); frame.className = 'kb-thumb-frame'; var el = document.createElement('img'); el.className = 'kb-thumb'; el.loading = 'lazy'; el.alt = ''; el.onerror = function () { frame.remove(); }; el.src = img; frame.appendChild(el); card.appendChild(frame); } var date = formatDate(post.pubDate || ''); if (date) { var d = document.createElement('p'); d.className = 'kb-date'; d.textContent = date; card.appendChild(d); } var h = document.createElement('h3'); h.className = 'kb-title'; h.textContent = decode(post.title) || 'Untitled'; card.appendChild(h); var excerpt = plainText(post.description || post.content); if (excerpt) { var p = document.createElement('p'); p.className = 'kb-excerpt'; p.textContent = trim(excerpt, 140); card.appendChild(p); } box.appendChild(card); }); } function readCache() { try { var raw = window.localStorage.getItem(CACHE_KEY); if (!raw) return null; var saved = JSON.parse(raw); if (Date.now() - saved.time > CACHE_MINUTES * 60 * 1000) return null; return saved.items; } catch (e) { return null; } } function writeCache(items) { try { window.localStorage.setItem(CACHE_KEY, JSON.stringify({ time: Date.now(), items: items })); } catch (e) {} } var cached = readCache(); if (cached && cached.length) { render(cached); return; } fetch(endpoint) .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); }) .then(function (data) { if (data.status !== 'ok' || !Array.isArray(data.items) || !data.items.length) { throw new Error(data.message || 'No items in feed'); } var slim = data.items.slice(0, POSTS).map(function (p) { return { title: p.title, link: p.link, pubDate: p.pubDate, thumbnail: p.thumbnail, enclosure: p.enclosure, description: p.description, content: p.content }; }); writeCache(slim); render(slim); }) .catch(function (err) { console.error('Substack feed:', err); }); })();
 </script>
 <script>
-(function(){function load(){if(window.Tally){Tally.loadEmbeds();return}document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(e){e.src=e.dataset.tallySrc})}setTimeout(load,2500)})();
+(function(){var f=document.getElementById('kform');if(!f)return;var st=f.querySelector('.kform-status'),bt=f.querySelector('button');
+function v(n){return f.elements[n].value.trim()}
+f.addEventListener('submit',function(e){e.preventDefault();
+ if(f.elements.access_key.value==='KEY_PENDING'){location.href='mailto:info@kambium.earth?subject='+encodeURIComponent('Message from '+v('name'))+'&body='+encodeURIComponent(v('message')+'\n\n'+v('name')+' · '+v('email'));return}
+ bt.disabled=true;st.textContent='Sending…';
+ fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
+ .then(function(r){return r.json()}).then(function(d){if(!d.success)throw 0;f.reset();f.classList.add('sent');st.textContent="Thank you. We'll reply to you soon. In the meantime, look into meeting us in person at an upcoming event."})
+ .catch(function(){st.innerHTML='Something went wrong. Please write to <a href="mailto:info@kambium.earth">info@kambium.earth</a>.'})
+ .then(function(){bt.disabled=false});});})();
 </script>
 <div id="kc-banner" hidden role="dialog" aria-label="Cookie choice" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:100;max-width:560px;margin:0 auto;background:var(--bark);color:var(--parchment);border:1px solid var(--sand);border-radius:16px;padding:18px 20px;box-shadow:0 10px 30px rgba(64,24,16,.35);font-size:.95rem;line-height:1.5">
   <p style="margin:0 0 12px">May we use analytics cookies? They show us which parts of this page are useful, so we can serve you better. We never see who you are, and we never sell your data or use it for ads.</p>
