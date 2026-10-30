@@ -261,17 +261,17 @@ footer a{color:var(--rust6)}
 
 /* Contact form card */
 .form-card{background:var(--parchment);color:var(--body);border-radius:18px;padding:22px 22px 6px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-.kform{display:flex;flex-direction:column;gap:14px;padding-bottom:16px}
-.kform label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.92rem;color:var(--bark)}
-.kform input,.kform textarea{font:inherit;font-weight:400;color:var(--bark);background:#fff;border:1px solid var(--clay);border-radius:10px;padding:.7em .85em}
-.kform input:focus,.kform textarea:focus{outline:2px solid var(--rust);outline-offset:1px;border-color:var(--rust)}
-.kform textarea{resize:vertical;min-height:140px}
-.kform button{align-self:flex-start;cursor:pointer;font-family:inherit}
-.kform button:disabled{opacity:.6;cursor:wait}
-.kform .hp{display:none}
-.kform-status{font-size:.95rem;color:var(--rust6)}
-.kform-status a{color:var(--rust)}
-.kform.sent label,.kform.sent button{display:none}
+.form-card iframe{width:100%;border:0;min-height:420px}
+.form-alt{font-size:.95rem;padding:.4rem 0 1.1rem;border-top:1px solid rgba(110,58,34,.18);margin-top:.4rem;padding-top:.9rem}
+.form-alt a{color:var(--rust);font-weight:700}
+
+/* Hub hero: text left-aligned over a left-weighted shade */
+.hero.home{justify-content:flex-start;text-align:left}
+.hero.home .in{width:100%;max-width:var(--wrap);margin:0 auto}
+.hero.home .in>*{max-width:660px}
+.hero.home .btns{justify-content:flex-start}
+.hero.home .bg::after{background:linear-gradient(90deg,rgba(40,14,8,.8) 0%,rgba(40,14,8,.6) 50%,rgba(40,14,8,.3) 100%)}
+@media (max-width:760px){.hero.home .bg::after{background:rgba(40,14,8,.6)}}
 
 /* Order complete (shown only when linked to #order-complete) */
 .target-only{display:none}
