@@ -331,3 +331,22 @@ details.past .past-item .photo{display:none}
   .pthumb{width:56px;height:56px}
   .prog .btn{grid-column:3;justify-self:start}
 }
+
+/* Nav: Programs dropdown */
+.nav li.drop{position:relative}
+.nav .sub{display:none;position:absolute;top:100%;left:-16px;flex-direction:column;align-items:stretch;gap:0;background:var(--parchment);border:1px solid rgba(110,58,34,.18);border-radius:12px;padding:8px 0;box-shadow:0 8px 24px rgba(64,24,16,.12);min-width:180px}
+.nav li.drop:hover .sub,.nav li.drop:focus-within .sub{display:flex}
+.nav .sub a{display:block;padding:.6em 16px;white-space:nowrap}
+
+/* Youth page (Kambium for Boys) */
+.boys .intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center}
+.boys h1{font-size:clamp(2rem,4.4vw,3rem);color:var(--rust6);margin-bottom:.5em}
+.boys .photo{aspect-ratio:4/5}
+.boys dl{margin-top:1.4rem;display:grid;gap:.45rem}
+.boys dt{display:inline;font-weight:700}
+.boys dd{display:inline;margin:0}
+.boys .form-card{max-width:760px;margin:3rem auto 0;box-shadow:0 10px 30px rgba(64,24,16,.12)}
+.boys .form-card iframe{min-height:600px}
+.boys .ask{text-align:center;margin-top:1.4rem;font-size:.95rem}
+.boys .ask a{color:var(--rust);font-weight:700}
+@media (max-width:760px){.boys .intro{grid-template-columns:1fr}.boys .photo{aspect-ratio:16/10;order:-1}}
