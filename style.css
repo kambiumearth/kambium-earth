@@ -350,3 +350,27 @@ details.past .past-item .photo{display:none}
 .boys .ask{text-align:center;margin-top:1.4rem;font-size:.95rem}
 .boys .ask a{color:var(--rust);font-weight:700}
 @media (max-width:760px){.boys .intro{grid-template-columns:1fr}.boys .photo{aspect-ratio:16/10;order:-1}}
+
+/* Video: tap-to-play poster, loads YouTube only when tapped */
+.yt{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#2a100a center/cover no-repeat}
+.yt-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(64,24,16,.88);box-shadow:0 6px 18px rgba(0,0,0,.3);transition:background .15s}
+.yt-play::after{content:"";position:absolute;left:31px;top:24px;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent var(--parchment)}
+.yt:hover .yt-play,.yt:focus-visible .yt-play{background:var(--rust)}
+.yt-alt{margin-top:.8rem;font-size:.92rem}
+.yt-alt a{color:var(--rust);font-weight:700}
+
+/* Phone menu */
+.menu-btn{display:none}
+@media (max-width:760px){
+  .menu-btn{display:inline-flex;align-items:center;background:none;border:1.5px solid var(--bark);color:var(--bark);border-radius:999px;padding:.55em 1.1em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;cursor:pointer}
+  .nav.open .menu-btn{background:var(--bark);color:var(--parchment)}
+  .nav.open nav{position:absolute;top:100%;left:0;right:0;z-index:70;background:var(--parchment);box-shadow:0 12px 24px rgba(64,24,16,.16);padding:6px var(--pad) 20px}
+  .nav.open nav>ul{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .nav.open nav li,.nav.open nav li.hide-md{display:block}
+  .nav.open nav>ul>li{border-bottom:1px solid rgba(200,160,136,.45)}
+  .nav.open nav>ul>li:last-child{border-bottom:0}
+  .nav.open nav a{display:block;padding:.9em 0;font-size:.92rem}
+  .nav.open .sub{display:flex;position:static;box-shadow:none;border:0;border-radius:0;padding:0 0 .6em 14px;min-width:0;background:none}
+  .nav.open .sub a{padding:.5em 0;font-size:.82rem}
+  .nav.open nav a.book{display:inline-block;margin-top:.9rem;padding:.7em 1.4em}
+}

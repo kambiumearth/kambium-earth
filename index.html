@@ -38,7 +38,7 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261102b">
+<link rel="stylesheet" href="style.css?v=20261102c">
 </head>
 <body>
 
@@ -48,7 +48,8 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
     <a class="logo" href="#top" aria-label="Kambium•Earth home">
       <img src="images/logo.webp" alt="Kambium•Earth-Based Learning">
     </a>
-    <nav aria-label="Site">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav aria-label="Site" id="site-nav">
       <ul>
         <li><a href="#about">About</a></li>
         <li class="drop"><a href="#events" aria-haspopup="true">Programs ▾</a>
@@ -226,7 +227,8 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
   <div class="wrap">
     <p class="kicker">See it for yourself</p>
     <h2>A taste of our 4-day adult wilderness program</h2>
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/8SbpHIgsKYU" title="Kambium•Earth 4-day adult wilderness program" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video"><button class="yt" type="button" data-id="8SbpHIgsKYU" aria-label="Play video: Kambium•Earth 4-day adult wilderness program" style="background-image:url(https://i.ytimg.com/vi/8SbpHIgsKYU/hqdefault.jpg)"><span class="yt-play"></span></button></div>
+    <p class="yt-alt"><a href="https://www.youtube.com/watch?v=8SbpHIgsKYU">Watch on YouTube →</a></p>
   </div>
 </section>
 
@@ -321,6 +323,12 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
 function set(v){try{localStorage.setItem('kc',v)}catch(e){}b.hidden=true;gtag('consent','update',{analytics_storage:v==='yes'?'granted':'denied'})}
 b.querySelector('[data-yes]').onclick=function(){set('yes')};b.querySelector('[data-no]').onclick=function(){set('no')};
 var l=document.getElementById('kc-open');if(l)l.onclick=function(e){e.preventDefault();show()};})();
+</script>
+<script>
+(function(){var h=document.querySelector('header.nav'),b=h&&h.querySelector('.menu-btn');if(!b)return;
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+document.querySelectorAll('.yt').forEach(function(y){y.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+y.dataset.id+'?autoplay=1&playsinline=1&rel=0';f.title=y.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';y.replaceWith(f)})});})();
 </script>
 </body>
 </html>
