@@ -359,18 +359,19 @@ details.past .past-item .photo{display:none}
 .yt-alt{margin-top:.8rem;font-size:.92rem}
 .yt-alt a{color:var(--rust);font-weight:700}
 
-/* Phone menu */
+/* Site menu: GLOBAL component, keep identical in every Kambium repo. Menu button at 900px and below */
 .menu-btn{display:none}
-@media (max-width:760px){
-  .menu-btn{display:inline-flex;align-items:center;background:none;border:1.5px solid var(--bark);color:var(--bark);border-radius:999px;padding:.55em 1.1em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;cursor:pointer}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex;align-items:center;min-height:44px;background:none;border:1.5px solid var(--bark);color:var(--bark);border-radius:999px;padding:.5em 1.15em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;cursor:pointer}
+  .nav nav>ul{display:none}
   .nav.open .menu-btn{background:var(--bark);color:var(--parchment)}
-  .nav.open nav{position:absolute;top:100%;left:0;right:0;z-index:70;background:var(--parchment);box-shadow:0 12px 24px rgba(64,24,16,.16);padding:6px var(--pad) 20px}
+  .nav.open nav{position:absolute;top:100%;left:0;right:0;z-index:70;background:var(--parchment);box-shadow:0 12px 24px rgba(64,24,16,.16);padding:6px var(--pad) 20px;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
   .nav.open nav>ul{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .nav.open nav li,.nav.open nav li.hide-md{display:block}
   .nav.open nav>ul>li{border-bottom:1px solid rgba(200,160,136,.45)}
   .nav.open nav>ul>li:last-child{border-bottom:0}
   .nav.open nav a{display:block;padding:.9em 0;font-size:.92rem}
   .nav.open .sub{display:flex;position:static;box-shadow:none;border:0;border-radius:0;padding:0 0 .6em 14px;min-width:0;background:none}
-  .nav.open .sub a{padding:.5em 0;font-size:.82rem}
-  .nav.open nav a.book{display:inline-block;margin-top:.9rem;padding:.7em 1.4em}
+  .nav.open .sub a{padding:.6em 0;font-size:.82rem}
+  .nav.open nav a.book{display:inline-block;margin-top:.9rem;padding:.75em 1.4em}
 }
