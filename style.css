@@ -293,3 +293,41 @@ footer a{color:var(--rust6)}
   .strip .photo:first-child{grid-column:1/-1}
   .lineage-people{grid-template-columns:1fr}
 }
+
+/* What we do: one button per offer, aligned to the card bottom */
+.three>div{display:flex;flex-direction:column}
+.three>div>p{margin-bottom:1.2rem}
+.three .offer-btn{margin-top:auto;align-self:flex-start;border-color:var(--bark);color:var(--bark)}
+.three .offer-btn:hover{background:var(--bark);color:var(--parchment)}
+
+/* Events: programme list */
+.upcoming{margin-top:1rem}
+.prog{list-style:none;border-top:1px solid rgba(225,201,169,.3)}
+.prog li{display:grid;grid-template-columns:5.5rem 72px minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(225,201,169,.3)}
+.pdate{font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--sand);line-height:1.2}
+.pdate span{display:block;font-size:2rem;letter-spacing:0;color:var(--parchment)}
+.pthumb{width:72px;height:72px;border-radius:10px}
+.ptext h4{font-family:Lato,sans-serif;font-weight:700;font-size:1.02rem;line-height:1.35;color:var(--parchment)}
+.ptext p{font-size:.88rem;color:var(--sand);line-height:1.45}
+.tg{margin-top:1.2rem;font-size:.95rem}
+.tg a{color:var(--sand)}
+
+/* Past events: collapsed, text only */
+details.past{margin-top:2.6rem}
+details.past summary{cursor:pointer;list-style:none;margin:0}
+details.past summary::-webkit-details-marker{display:none}
+details.past summary::before{content:"+ ";color:var(--sand)}
+details.past[open] summary::before{content:"\2013  "}
+details.past .past-list{margin-top:1.2rem}
+details.past .past-item{grid-template-columns:1fr;padding:12px 14px}
+details.past .past-item .photo{display:none}
+
+/* Video band */
+.taste{background:var(--sandbg)}
+.taste .video{max-width:860px}
+
+@media (max-width:760px){
+  .prog li{grid-template-columns:4.2rem 56px minmax(0,1fr)}
+  .pthumb{width:56px;height:56px}
+  .prog .btn{grid-column:3;justify-self:start}
+}
