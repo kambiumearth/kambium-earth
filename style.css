@@ -372,6 +372,6 @@ details.past .past-item .photo{display:none}
   .nav.open nav>ul>li:last-child{border-bottom:0}
   .nav.open nav a{display:block;padding:.9em 0;font-size:.92rem}
   .nav.open .sub{display:flex;position:static;box-shadow:none;border:0;border-radius:0;padding:0 0 .6em 14px;min-width:0;background:none}
-  .nav.open .sub a{padding:.6em 0;font-size:.82rem}
+  .nav.open .sub a{padding:.85em 0;font-size:.82rem}
   .nav.open nav a.book{display:inline-block;margin-top:.9rem;padding:.75em 1.4em}
 }
