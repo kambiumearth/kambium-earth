@@ -4,7 +4,7 @@
 
 **Where to work:** the Claude project "Kambium Websites", in a chat started from the Claude desktop app with this computer linked (so Claude can use Chrome). One project for all website work; one chat per update session.
 
-Version 20261102. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
+Version 20261111. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
 
 ---
 
@@ -190,13 +190,15 @@ Intro (kicker "Kambium for Boys · Winter 2027", h1, paragraph, Who / Where / Wh
 ### sundays.kambium.earth sections (ids)
 `#glance` The Day · `#sundays` The Sundays · `#join` (nav label "Price") · `#details` · `#families` · `#guides` · `#faq` · `#contact`. Nav has no link back to kambium.earth (Joshua removed it); the logo links to kambium.earth. Book button goes to Ticket Tailor checkout. Has the global Menu button at 900px and below (added 2 Nov 2026).
 
+Sundays hero (11 Nov 2026): text left-aligned; place shown as a fact line (Tenor caps, hairline under, no pill); a "Next Sunday" line (`#hero-next`) with date and title; buttons "Book Sun DD Mon →" (`#hn-btn`, Ticket Tailor checkout) and "All six Sundays" (`#hn-arc`, links to `#join`). A small script right after the hero holds the six dates and titles (copied from the Ticket Tailor ticket groups) and switches the line and button to the next Sunday at 16:30 Lisbon time on each Sunday. It removes the All six Sundays button after the Winter Arc closes (Thu 10 Dec 2026, 9 PM) and shows "See the Sundays" after the last Sunday. No weekly commit or scheduled task is needed. The static text in the HTML still reads 29 Nov (seen only by link previews and no-JS visitors).
+
 ---
 
 ## 7. Styling
 
 Source: Kambium Design System (Claude Design, extracted 23 Oct 2026; master written copy docs/STYLE_GUIDE.md in this repo; standalone Claude Design closes 14 Dec 2026, export a copy).
 
-Where the style actually lives: the live sites use the `:root` tokens and component CSS in each repo's `style.css` (kambium-earth and sundays-kambium-earth share the same base). A style change is a global change: update both style.css files, bump both version tags, and update docs/STYLE_GUIDE.md so the written guide matches the code. Current stylesheet version: 20261102e.
+Where the style actually lives: the live sites use the `:root` tokens and component CSS in each repo's `style.css` (kambium-earth and sundays-kambium-earth share the same base). A style change is a global change: update both style.css files, bump both version tags, and update docs/STYLE_GUIDE.md so the written guide matches the code. Current stylesheet versions: kambium.earth 20261102e, Sundays 20261111a. Exception to the shared base: Sundays style.css ends with a Sundays-only hero block marked "Sundays hero (20261111)"; it is page-specific and is not copied to kambium.earth.
 
 **Grounds:** only two. Parchment #F7F0E8 (page, cards, most reading) and Bark #401810 (dark sections, footer, primary buttons). The site also uses `--sandbg #EEDFCC` for the light video and Work-with-us bands. Never add a third ground colour.
 
@@ -258,6 +260,8 @@ Claude edits through the **Claude in Chrome extension**, which is logged in to G
 
 **New page:** copy the head, header (with Menu button) and footer/scripts from index.html, fix `#anchor` links to `/#anchor`, give it its own title, description, canonical and og tags, add `noindex` if it's not public yet, add it to the nav where Joshua says, test at all widths.
 
+**New Sundays season:** update the dates, titles, end times and Winter Arc deadline in the hero script on sundays.kambium.earth, the date rail in the hero, and the static Next Sunday text, so they match Ticket Tailor.
+
 **Unhide lineage:** remove the `hidden` attribute from `div#lineage` once Joshua sends the new text.
 
 **Social previews:** after changing an og image, run Facebook Sharing Debugger "Scrape Again". Use `?v=` on og image URLs.
@@ -295,4 +299,6 @@ Claude edits through the **Claude in Chrome extension**, which is logged in to G
 - Melina's bio check.
 - Add GA ID in Ticket Tailor; mention GA in the Policies doc.
 - Later: automatic events sync (daily GitHub Action reading both Ticket Tailor box offices via API; Joshua adds the API keys as GitHub secrets).
+- docs/STYLE_GUIDE.md on GitHub is the 23 Oct version and lacks Joshua's 3 Nov 2026 rules (left-aligned heroes, only buttons are pills, no cards, alternating grounds). The newer copy lives in the Kambium Websites project. Update the GitHub file.
+- Buttons (`.btn`) are 42px tall site-wide, below the 44px tap-target rule; the Sundays hero buttons are 45px on phones. Raise `.btn` padding in both repos.
 - Lesson logged 2 Nov 2026: the phone menu was added to kambium.earth but not to Sundays, and tablets (761 to 900px) had hidden nav links. Both fixed. Always treat nav, footer, banner and CTA as global components (section 1b).
