@@ -201,7 +201,7 @@ footer a{color:var(--rust6)}
 /* ===== kambium.earth hub additions ===== */
 .hero.home{min-height:min(86vh,720px)}
 .hero.home h1{font-size:clamp(2.2rem,5.4vw,3.7rem)}
-.hero .place{display:inline-flex;align-items:center;gap:.5em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--parchment);border:1px solid rgba(225,201,169,.6);border-radius:999px;padding:.45em 1.1em;margin:0 0 1.1rem}
+.hero .place{display:inline-flex;align-items:center;gap:.5em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--parchment);padding:0 0 .45em;border-bottom:1px solid rgba(225,201,169,.6);margin:0 0 1.1rem}
 .kicker{font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;color:var(--rust);margin-bottom:.8rem}
 .dark .kicker{color:var(--sand)}
 
@@ -362,7 +362,7 @@ details.past .past-item .photo{display:none}
 /* Site menu: GLOBAL component, keep identical in every Kambium repo. Menu button at 900px and below */
 .menu-btn{display:none}
 @media (max-width:900px){
-  .menu-btn{display:inline-flex;align-items:center;min-height:44px;background:none;border:1.5px solid var(--bark);color:var(--bark);border-radius:999px;padding:.5em 1.15em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;cursor:pointer}
+  .menu-btn{display:inline-flex;align-items:center;margin-left:auto;min-height:44px;background:none;border:1.5px solid var(--bark);color:var(--bark);border-radius:999px;padding:.5em 1.15em;font-family:'Tenor Sans',serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;cursor:pointer}
   .nav nav>ul{display:none}
   .nav.open .menu-btn{background:var(--bark);color:var(--parchment)}
   .nav.open nav{position:absolute;top:100%;left:0;right:0;z-index:70;background:var(--parchment);box-shadow:0 12px 24px rgba(64,24,16,.16);padding:6px var(--pad) 20px;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
