@@ -4,7 +4,7 @@
 
 **Where to work:** the Claude project "Kambium Websites", in a chat started from the Claude desktop app with this computer linked (so Claude can use Chrome). One project for all website work; one chat per update session.
 
-Version 20261112. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
+Version 20261116. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
 
 ---
 
@@ -36,7 +36,7 @@ Most visitors arrive on phones (links from Telegram, WhatsApp, Instagram, email)
 - Floating phone CTA (`.mobile-book`, "Join an event" on kambium.earth, "Book" on Sundays)
 - Tally embed loader, fonts, favicon, og/meta pattern
 
-Before finishing any change, ask: "Does this touch a global component? Which other pages and repos have it?" Then apply it everywhere and test everywhere. Pages today: kambium.earth `/`, `/boys`; sundays.kambium.earth `/`.
+Before finishing any change, ask: "Does this touch a global component? Which other pages and repos have it?" Then apply it everywhere and test everywhere. Pages today: kambium.earth `/`, `/boys`, `/mentoring/`; sundays.kambium.earth `/`.
 
 **Breakpoints (shared by all sites):**
 - ≤900px: Menu button replaces the nav (covers phones AND tablets; links hidden at this width must never be unreachable)
@@ -70,6 +70,7 @@ Pages on kambium.earth:
 - `/` → `index.html` (the hub)
 - `/boys` → `boys.html` (Kambium for Boys pre-registration, noindex)
 - `/youth` → `youth.html` (redirect page to /boys, keep it so old links work)
+- `/mentoring/` → `mentoring/index.html` + `mentoring/mentoring.css` (1:1 mentoring for educators; built from the approved Mentoring Page Sketch, 3 Nov 2026)
 - `carrd-archive.html` (copy of the old Carrd site, reference only, not linked)
 - `docs/WEB_GUIDE.md`, `docs/STYLE_GUIDE.md` (these guides; public but not linked)
 
@@ -126,7 +127,7 @@ Retired: Carrd. The Carrd hub (site 4818175346712276) and the Carrd Sundays site
 | Instagram | https://instagram.com/kambium.earth |
 | YouTube | 4-day program video 8SbpHIgsKYU, shown as a tap-to-play poster (loads youtube-nocookie on tap) with a "Watch on YouTube" link underneath. |
 | Policies | Proton Drive link in the footer. |
-| Joshua's site | https://www.joshuaglass.net/mentoring-young-men (Mentoring nav link) |
+| Joshua's site | https://www.joshuaglass.net/mentoring-young-men, linked only from /boys as a secondary option (Joshua, 16 Nov 2026). Not in the nav or on the home page. |
 
 ---
 
@@ -136,13 +137,15 @@ Retired: Carrd. The Carrd hub (site 4818175346712276) and the Carrd Sundays site
 ```
 index.html        hub page
 boys.html         Kambium for Boys (noindex)
+mentoring/        index.html + mentoring.css (page-only styles, all scoped to main.mp)
 youth.html        redirect to /boys
 style.css         shared styles (Sundays base + hub additions appended at the end)
 CNAME             kambium.earth
 .nojekyll
 docs/             WEB_GUIDE.md (this guide, master copy), STYLE_GUIDE.md
 images/           photos (container01.jpg hero, image02-14.jpg, gallery*.jpg, logo.webp,
-                  sundays.webp, og-home.jpg 1200x630, favicon.png, apple-touch-icon.png)
+                  sundays.webp, og-home.jpg 1200x630, og-mentoring.jpg 1200x630, favicon.png, apple-touch-icon.png)
+images/mentoring/ retina photos for /mentoring (full size + a -1200 or -800 phone copy, served with srcset)
 shapes/           riso masks: slab.webp, bium.webp, u.webp, b.webp
 carrd-archive.html
 ```
@@ -165,7 +168,7 @@ To give Claude file access in a future chat, connect a folder in the Claude desk
 ## 6. Page structure
 
 ### Nav (same on index.html and boys.html)
-About (`#about`) · **Programs ▾** (link to `#events`; dropdown: Community Sundays → sundays.kambium.earth, Mentoring Foundation Training → Ticket Tailor 2012165, Boys → /boys) · Articles (`#articles`, hidden under 900px) · Mentoring (joshuaglass.net, hidden under 900px) · Contact (`#contact`, dark capsule).
+About (`#about`) · **Programs ▾** (link to `#events`; dropdown: Community Sundays → sundays.kambium.earth, Mentoring Foundation Training → Ticket Tailor 2012165, Boys → /boys) · Articles (`#articles`, hidden under 900px) · Mentoring (`/mentoring/`, hidden under 900px; changed 16 Nov 2026 from joshuaglass.net) · Contact (`#contact`, dark capsule).
 On boys.html every `#anchor` is written `/#anchor`.
 At 900px and below (phones and tablets): a "Menu" capsule button, pushed to the far right of the header (`margin-left:auto`, fixed 12 Nov 2026), opens the full list, dropdown items shown indented. Same component on sundays.kambium.earth. The script sits just before `</body>`.
 
@@ -185,7 +188,12 @@ At 900px and below (phones and tablets): a "Menu" capsule button, pushed to the 
 13. Floating "Join an event" capsule on phones (`.mobile-book`)
 
 ### boys.html
-Intro (kicker "Kambium for Boys · Winter 2027", h1, paragraph, Who / Where / When / With, "Skip to the questions ↓" button) + photo image03.jpg, then `#questions` Tally rDyoBR card, then email line. Facts come from the Tally form: boys 9 to 14, Sintra-Colares (place TBC), January to May 2027, Joshua Glass and Dylan Vincent.
+Intro (kicker "Kambium for Boys · Winter 2027", h1, paragraph, Who / Where / When / With, "Skip to the questions ↓" button) + photo image03.jpg, then `#questions` Tally rDyoBR card, then email line, then a secondary line pointing to Joshua's 1:1 mentoring for young men (joshuaglass.net). Facts come from the Tally form: boys 9 to 14, Sintra-Colares (place TBC), January to May 2027, Joshua Glass and Dylan Vincent.
+
+### mentoring/index.html (/mentoring/)
+Paths are absolute (`/style.css`, `/images/...`) because the page sits in a folder. Global head, header, footer, cookie banner and menu script are copied from boys.html; page CSS lives in `mentoring/mentoring.css` (own `?v=` tag), every rule scoped to `main.mp`, with `.mhero` and `.mfaq` renamed so style.css `.hero` and Sundays `.faq` don't leak in. Loads Lato 300 as an extra font link (page only).
+Sections (ids, ground): `#hero` (photo, soft fade; phones centre Melina) · `#who` (parchment, sand "What changes" strip) · `#threads` (bark, cordage photo right) · `#included` (parchment, bird-skulls photo left) · `#session` (bark, willow shoot drawing) · `#begin` (parchment) · `#mentor` (bark, heading "Joshua Glass", bio and Pat's quote) · `#questions` (sand) · `#start` (closing photo, soft fade; phones centre Melina). A floating section navigator (slim tab of grain dots at the left edge, opens into a labelled panel on hover or keyboard focus; 901px and up on screens with a mouse) is built by script from `section[data-nav]`.
+Every "Book a discovery call" button and the floating phone button ("Book a call") go to the Proton discovery-call link. Photo credit line "Photos: Melanie Pyne" is added to this page's footer.
 
 ### sundays.kambium.earth sections (ids)
 `#glance` The Day · `#sundays` The Sundays · `#join` (nav label "Price") · `#details` · `#families` · `#guides` · `#faq` · `#contact`. Nav has no link back to kambium.earth (Joshua removed it); the logo links to kambium.earth. Book button goes to Ticket Tailor checkout. Has the global Menu button at 900px and below (added 2 Nov 2026).
@@ -293,12 +301,12 @@ Claude edits through the **Claude in Chrome extension**, which is logged in to G
 - Unpublish both Carrd sites (Joshua).
 - Delete the old `community` DNS record if unused.
 - Lineage text rewrite, then unhide.
+- /mentoring names Tim Corcoran and Jeannine Tidwell (link: twineagles.org home) and "their lineage of mentors" (link: https://www.twineagles.org/lineage.html) for now. Joshua will make a dedicated lineage page on kambium.earth; repoint the link then.
 - Foundation Training thumbnail: Melina is updating the Ticket Tailor image (Todoist task, label `melina`).
 - Crossed-out €300 on the All Six Sundays card: keep or remove?
 - Testimonials: only Mathilde's verified quote so far.
 - Melina's bio check.
 - Add GA ID in Ticket Tailor; mention GA in the Policies doc.
 - Later: automatic events sync (daily GitHub Action reading both Ticket Tailor box offices via API; Joshua adds the API keys as GitHub secrets).
-- docs/STYLE_GUIDE.md on GitHub is the 23 Oct version and lacks Joshua's 3 Nov 2026 rules (left-aligned heroes, only buttons are pills, no cards, alternating grounds). The newer copy lives in the Kambium Websites project. Update the GitHub file.
 - Buttons (`.btn`) are 42px tall site-wide, below the 44px tap-target rule; the Sundays hero buttons are 45px on phones. Raise `.btn` padding in both repos.
 - Lesson logged 2 Nov 2026: the phone menu was added to kambium.earth but not to Sundays, and tablets (761 to 900px) had hidden nav links. Both fixed. Always treat nav, footer, banner and CTA as global components (section 1b).
