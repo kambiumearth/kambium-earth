@@ -4,7 +4,7 @@
 
 **Where to work:** the Claude project "Kambium Websites", in a chat started from the Claude desktop app with this computer linked (so Claude can use Chrome). One project for all website work; one chat per update session.
 
-Version 20261116. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
+Version 20261117. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
 
 ---
 
@@ -21,6 +21,8 @@ Version 20261116. Read this before any change to kambium.earth, sundays.kambium.
 9. **Never edit without checking the live result afterwards.** Confirm the commit landed, then confirm the live page changed.
 10. Joshua approves visual changes: for anything bigger than a text or link change, show a sketch or options first.
 11. **Keep this guide current:** after any structural change, update docs/WEB_GUIDE.md in the kambium-earth repo in the same session.
+12. **Tidy up after every update (Joshua, 16 Nov 2026):** once an update is live, check the repo and every working folder for duplicate photos (same file under two names or sizes nobody references), images no page uses, old upload or launch folders, and leftover working files. **Never delete anything.** On the computer, move it into a folder named `_to_delete` inside the same connected folder, and tell Joshua what is there so he can delete it himself. In the GitHub repo, list candidates for Joshua to approve and remove nothing without his yes. Also run this check as part of the weekly debug.
+13. **External links open in a new tab (Joshua, 17 Nov 2026):** every link from kambium.earth to another site gets `target="_blank" rel="noopener"`. Links within kambium.earth and to sundays.kambium.earth stay in the same tab; mailto and tel links stay as they are. events.kambium.earth is Ticket Tailor, so it opens in a new tab.
 
 ---
 
@@ -233,9 +235,24 @@ Sun #F7E511: on bark only, one or two highlighted words at most. No cool greys, 
 
 ## 8. How Claude makes changes
 
-Claude edits through the **Claude in Chrome extension**, which is logged in to GitHub (kambiumearth) and Infomaniak on Joshua's Mac. Joshua's computer must be awake with Chrome open. The desktop app's built-in Browser pane is NOT logged in to GitHub.
+**Never ask Joshua to drag and drop files onto GitHub (Joshua, 17 Nov 2026).** Claude commits itself.
 
-**Commit a text file change:**
+**First choice: the outbox (set up 17 Nov 2026).** Claude's shell on Joshua's Mac can read GitHub but Cowork blocks it from pushing, so Joshua runs one command and the push happens in his own Terminal.
+1. Connect the folder `KAMBIUM/kambium.earth website` to the session. In device_bash, clone the repo fresh into `$HOME` (outside the connected folders, so nothing in Joshua's folders is ever deleted), apply the changes with a script, check them and commit.
+2. Save the commit with `git format-patch -1 HEAD --stdout` as `_outbox/<YYYYMMDD><letter> <repo>.patch` in that folder, and confirm it applies to a fresh clone.
+3. Ask Joshua to paste into Terminal: `bash ~/KAMBIUM/"kambium.earth website"/_tools/push.sh`. The script applies each patch to a fresh clone, pushes with his token and moves the patch to `_outbox/sent`. If a patch no longer applies, rebuild it from the current GitHub files.
+4. Verify the commit and the live page (step 4 of the Chrome method below).
+5. The token (Contents read and write on kambium-earth and sundays-kambium-earth only, expires November 2027) is in `_credentials/github-token.txt`. Never print it, copy it elsewhere or commit it. To renew: regenerate at github.com/settings/personal-access-tokens, paste `pbpaste > ~/KAMBIUM/"kambium.earth website"/_credentials/github-token.txt` into Terminal, copy the token, then press Enter.
+
+**Second choice: the GitHub connector** (added 17 Nov 2026, signed in as kambiumearth; on 17 Nov it could read but every write was refused). If it gains write access, it works from any Claude session with no computer needed.
+1. Read the current file with `get_file_contents` (owner `kambiumearth`, repo `kambium-earth` or `sundays-kambium-earth`, ref `main`).
+2. Commit text files (HTML, CSS, JS, Markdown) with `push_files`: several files in one commit on `main`, with a short commit message.
+3. Confirm with `list_commits` that the commit is there, then verify live (step 4 below).
+4. The connector takes whole files as text, so it suits small and medium text edits. For large generated pages (the mentoring page with its drawings), edits across many files, and images or other binary files, use the Chrome method below, which applies exact replacements to the files fetched from GitHub and attaches them in the upload tab by script. Never a manual drag.
+
+**Fallback: the Claude in Chrome extension**, which is logged in to GitHub (kambiumearth) and Infomaniak on Joshua's Mac. Joshua's computer must be awake with Chrome open. The desktop app's built-in Browser pane is NOT logged in to GitHub.
+
+**Commit a text file change in Chrome:**
 1. Open `https://github.com/kambiumearth/<repo>/upload/main` in a Chrome tab.
 2. In JS: get the latest commit SHA from `api.github.com/repos/kambiumearth/<repo>/commits?per_page=1` (from the Chrome tab), fetch each file at that SHA from `raw.githubusercontent.com` (fetching `/main/` can be stale for minutes), apply exact string or regex replacements that must match exactly once, build `File` objects, attach them to `input[type=file]` with `DataTransfer`, set `[name=message]` with the native value setter, then click "Commit changes".
 3. Keep each JS call under about 40 seconds (long sleeps time out). Click Commit in a separate call if needed and confirm via the API that the commit message appears.
@@ -290,6 +307,7 @@ Claude edits through the **Claude in Chrome extension**, which is logged in to G
 7. Events: no past dates under Coming up or in the dropdown; site dates match Ticket Tailor.
 8. Meta: title, description, canonical, og image reachable; GA tag and cookie banner present.
 9. No leftover placeholders ("TODO", "KEY_PENDING", "lorem").
+10. Tidy check: list repo images no page, CSS or guide references, duplicate files (same checksum), stray working files (drafts, backups, .DS_Store, upload or launch folders) and any `_to_delete` folders waiting for Joshua. Report only; delete nothing.
 
 **Last full debug (2 Nov 2026):** HTML valid on all pages (only a cosmetic lowercase doctype note), all local assets present, no horizontal overflow at 360 to 1440px. Fixed: no menu on phones and tablets (global Menu button on both sites, 44px targets), video black on phones (tap-to-play poster plus YouTube link).
 
