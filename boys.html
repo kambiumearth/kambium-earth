@@ -32,10 +32,16 @@
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 var kc=null;try{kc=localStorage.getItem('kc')}catch(e){}
-gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:kc==='yes'?'granted':'denied'});
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:(kc==='yes'||kc==='yes2')?'granted':'denied'});
 gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5XQDPP2Z3"></script>
+<!-- Meta pixel with consent: not loaded and nothing sent until the visitor accepts (kc = 'yes2') -->
+<script>
+function kbPixel(){if(window.fbq)return;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','29039678249060546');fbq('track','PageView');if(location.hostname==='sundays.kambium.earth')fbq('track','ViewContent',{content_name:'Wilderness Skills Community Sundays'});}
+if(kc==='yes2')kbPixel();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -108,14 +114,17 @@ gtag('js',new Date());gtag('config','G-C5XQDPP2Z3');
 (function(){function load(){if(window.Tally){Tally.loadEmbeds();return}document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(e){e.src=e.dataset.tallySrc})}setTimeout(load,2500)})();
 </script>
 <div id="kc-banner" hidden role="dialog" aria-label="Cookie choice" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:100;max-width:560px;margin:0 auto;background:var(--bark);color:var(--parchment);border:1px solid var(--sand);border-radius:16px;padding:18px 20px;box-shadow:0 10px 30px rgba(64,24,16,.35);font-size:.95rem;line-height:1.5">
-  <p style="margin:0 0 12px">May we use analytics cookies? They show us which parts of this page are useful, so we can serve you better. We never see who you are, and we never sell your data or use it for ads.</p>
+  <p style="margin:0 0 12px">May we use cookies from Google Analytics and Meta? They show us which parts of this page are useful and which of our Instagram and Facebook ads bring people here. We never see who you are, and we never sell your data.</p>
   <div class="btns"><button type="button" data-yes class="btn sandbtn" style="cursor:pointer;font-family:inherit">Yes, that's fine</button><button type="button" data-no class="btn ghost" style="cursor:pointer;font-family:inherit;background:none">No thanks</button></div>
 </div>
 <script>
-(function(){var b=document.getElementById('kc-banner');function show(){b.hidden=false}var c=null;try{c=localStorage.getItem('kc')}catch(e){}if(!c)show();
-function set(v){try{localStorage.setItem('kc',v)}catch(e){}b.hidden=true;gtag('consent','update',{analytics_storage:v==='yes'?'granted':'denied'})}
-b.querySelector('[data-yes]').onclick=function(){set('yes')};b.querySelector('[data-no]').onclick=function(){set('no')};
+(function(){var b=document.getElementById('kc-banner');function show(){b.hidden=false}var c=null;try{c=localStorage.getItem('kc')}catch(e){}if(!c||c==='yes')show();
+function set(v){try{localStorage.setItem('kc',v)}catch(e){}b.hidden=true;gtag('consent','update',{analytics_storage:v==='yes2'?'granted':'denied'});if(v==='yes2')kbPixel();else if(window.fbq)fbq('consent','revoke')}
+b.querySelector('[data-yes]').onclick=function(){set('yes2')};b.querySelector('[data-no]').onclick=function(){set('no')};
 var l=document.getElementById('kc-open');if(l)l.onclick=function(e){e.preventDefault();show()};})();
+(function(){var q=new URLSearchParams(location.search),r=q.get('ref')||(q.get('utm_source')==='meta'?'meta':null);
+document.querySelectorAll('a[href^="https://events.kambium.earth"]').forEach(function(a){if(r){try{var u=new URL(a.href);u.searchParams.set('ref',r);a.href=u.toString()}catch(e){}}
+a.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','BookClick',{link:a.href.split('?')[0]})})});})();
 </script>
 <script>
 (function(){var h=document.querySelector('header.nav'),b=h&&h.querySelector('.menu-btn');if(!b)return;
