@@ -7,5 +7,9 @@
 <link rel="canonical" href="https://kambium.earth/boys">
 <meta http-equiv="refresh" content="0; url=/boys">
 </head>
-<body><p>This page has moved to <a href="/boys">kambium.earth/boys</a>.</p></body>
+<body><p>This page has moved to <a href="/boys">kambium.earth/boys</a>.</p><script>
+/* Site rule (WEB_GUIDE 1.13): any link outside kambium.earth and its subdomains opens in a new tab. Also catches links added by script. */
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href^="http"]').forEach(function(a){var h=a.hostname.toLowerCase();if(h!=='kambium.earth'&&!/\.kambium\.earth$/.test(h)){a.target='_blank';a.rel='noopener';}});});
+</script>
+</body>
 </html>

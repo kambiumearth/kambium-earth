@@ -343,5 +343,9 @@ b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttr
 h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false')})});
 document.querySelectorAll('.yt').forEach(function(y){y.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+y.dataset.id+'?autoplay=1&playsinline=1&rel=0';f.title=y.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';y.replaceWith(f)})});})();
 </script>
+<script>
+/* Site rule (WEB_GUIDE 1.13): any link outside kambium.earth and its subdomains opens in a new tab. Also catches links added by script. */
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href^="http"]').forEach(function(a){var h=a.hostname.toLowerCase();if(h!=='kambium.earth'&&!/\.kambium\.earth$/.test(h)){a.target='_blank';a.rel='noopener';}});});
+</script>
 </body>
 </html>

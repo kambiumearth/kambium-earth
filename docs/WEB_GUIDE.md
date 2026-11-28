@@ -4,7 +4,7 @@
 
 **Where to work:** the Claude project "Kambium Websites", in a chat started from the Claude desktop app with this computer linked (so Claude can use Chrome). One project for all website work; one chat per update session.
 
-Version 20261117. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
+Version 20261128. Read this before any change to kambium.earth, sundays.kambium.earth or any page under them. It holds the rules, styling, hosting, DNS, file layout and workflow. If something here conflicts with an older handoff note, this guide wins. Update it (and its version date) whenever something structural changes.
 
 ---
 
@@ -22,7 +22,7 @@ Version 20261117. Read this before any change to kambium.earth, sundays.kambium.
 10. Joshua approves visual changes: for anything bigger than a text or link change, show a sketch or options first.
 11. **Keep this guide current:** after any structural change, update docs/WEB_GUIDE.md in the kambium-earth repo in the same session.
 12. **Tidy up after every update (Joshua, 16 Nov 2026):** once an update is live, check the repo and every working folder for duplicate photos (same file under two names or sizes nobody references), images no page uses, old upload or launch folders, and leftover working files. **Never delete anything.** On the computer, move it into a folder named `_to_delete` inside the same connected folder, and tell Joshua what is there so he can delete it himself. In the GitHub repo, list candidates for Joshua to approve and remove nothing without his yes. Also run this check as part of the weekly debug.
-13. **External links open in a new tab (Joshua, 17 Nov 2026):** every link from kambium.earth to another site gets `target="_blank" rel="noopener"`. Links within kambium.earth and to sundays.kambium.earth stay in the same tab; mailto and tel links stay as they are. events.kambium.earth is Ticket Tailor, so it opens in a new tab.
+13. **External links open in a new tab, on every Kambium site (Joshua, 17 Nov 2026; widened 28 Nov 2026):** on kambium.earth, sundays.kambium.earth and every page or site under kambium.earth, now and in future, any link to a page outside the kambium.earth domain gets `target="_blank" rel="noopener"`. Links within kambium.earth stay in the same tab; mailto and tel links stay as they are. Every page also carries a small script before `</body>` that enforces this for links added later or by script; copy it into every new page, and still write the attributes into new links. Open question: whether Ticket Tailor checkout (events.kambium.earth) opens in a new tab or the same tab. Today kambium.earth opens it in a new tab and sundays.kambium.earth in the same tab.
 
 ---
 
