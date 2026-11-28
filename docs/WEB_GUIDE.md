@@ -37,6 +37,7 @@ Most visitors arrive on phones (links from Telegram, WhatsApp, Instagram, email)
 - Stylesheet link with version tag
 - Floating phone CTA (`.mobile-book`, "Join an event" on kambium.earth, "Book" on Sundays)
 - Tally embed loader, fonts, favicon, og/meta pattern
+- New-tab script for links outside kambium.earth (rule 13), just before `</body>`
 
 Before finishing any change, ask: "Does this touch a global component? Which other pages and repos have it?" Then apply it everywhere and test everywhere. Pages today: kambium.earth `/`, `/boys`, `/mentoring/`; sundays.kambium.earth `/`.
 
@@ -209,7 +210,7 @@ Sundays hero (11 Nov 2026): text left-aligned; place shown as a fact line (Tenor
 
 Source: Kambium Design System (Claude Design, extracted 23 Oct 2026; master written copy docs/STYLE_GUIDE.md in this repo; standalone Claude Design closes 14 Dec 2026, export a copy).
 
-Where the style actually lives: the live sites use the `:root` tokens and component CSS in each repo's `style.css` (kambium-earth and sundays-kambium-earth share the same base). A style change is a global change: update both style.css files, bump both version tags, and update docs/STYLE_GUIDE.md so the written guide matches the code. Current stylesheet versions: kambium.earth 20261112a, Sundays 20261112a. Exception to the shared base: Sundays style.css ends with a Sundays-only hero block marked "Sundays hero (20261111)"; it is page-specific and is not copied to kambium.earth.
+Where the style actually lives: the live sites use the `:root` tokens and component CSS in each repo's `style.css` (kambium-earth and sundays-kambium-earth share the same base). A style change is a global change: update both style.css files, bump both version tags, and update docs/STYLE_GUIDE.md so the written guide matches the code. Current stylesheet versions: kambium.earth 20261112a, Sundays 20261128a. Exception to the shared base: Sundays style.css ends with a Sundays-only hero block marked "Sundays hero (20261111)"; it is page-specific and is not copied to kambium.earth.
 
 **Grounds:** only two. Parchment #F7F0E8 (page, cards, most reading) and Bark #401810 (dark sections, footer, primary buttons). The site also uses `--sandbg #EEDFCC` for the light video and Work-with-us bands. Never add a third ground colour.
 
